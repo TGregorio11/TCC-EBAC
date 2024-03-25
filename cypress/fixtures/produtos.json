@@ -1,0 +1,26 @@
+[
+    {
+       "nomeProduto": "Ingrid Running Jacket",
+        "tamanho": "L",
+        "cor": "Orange",
+        "quantidade": 3
+    },
+
+    { 
+        "nomeProduto": "Celeste Sports Bra",
+        "tamanho": "XL",
+        "cor": "Green",
+        "quantidade": 4
+    },
+    
+    {
+        "nomeProduto": "Hyperion Elements Jacket",
+        "tamanho": "S",
+        "cor": "Orange",
+        "quantidade": 5
+    }
+
+]
+
+
+

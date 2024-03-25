@@ -10,8 +10,15 @@ class ProdutosPage {
         cy.get('.button-search').eq(1).click()
     }
 
-    addProdutoCarrinho() {
-
+    addProdutoCarrinho(tamanho, cor, quantidade) {
+        cy.get('.button-variable-item-' + tamanho).click()
+        cy.get(`.button-variable-item-${cor}`).click()
+        cy.get('.input-text').clear().type (quantidade)
+        cy.get('.single_add_to_cart_button').click()
+        cy.get('.woocommerce-message > .button').click()
+        cy.get('.quantity > .input-text').clear().type (3)
+        cy.get('.checkout-button').click()
+        
     }
 } 
 

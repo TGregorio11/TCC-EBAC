@@ -8,7 +8,7 @@ describe('Funcionalidade: Login', () => {
         cy.visit('minha-conta')
     });
 
-    it.only(' Deve realizar login com sucesso - Metodo Fixture', () => {
+    it(' Deve realizar login com sucesso - Metodo Fixture', () => {
         cy.fixture('perfil').then(dados => {
             cy.get('#username').type(dados.usuario)
             cy.get('#password').type(dados.senha)
