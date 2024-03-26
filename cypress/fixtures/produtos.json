@@ -2,22 +2,22 @@
     {
        "nomeProduto": "Ingrid Running Jacket",
         "tamanho": "L",
-        "cor": "Orange",
-        "quantidade": 3
+        "cor": "White",
+        "quantidade": 1
     },
 
     { 
-        "nomeProduto": "Celeste Sports Bra",
+        "nomeProduto": "Aero Daily Fitness Tee",
         "tamanho": "XL",
-        "cor": "Green",
-        "quantidade": 4
+        "cor": "Black",
+        "quantidade": 1
     },
     
     {
         "nomeProduto": "Hyperion Elements Jacket",
         "tamanho": "S",
         "cor": "Orange",
-        "quantidade": 5
+        "quantidade": 1
     }
 
 ]
