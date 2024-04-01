@@ -16,13 +16,14 @@ Cypress.Commands. add('login' , (usuario, senha) => {
 });
 
 Cypress.Commands. add('checkout' , (nome, sobrenome, endereço, cidade, cep, telefone, email) => {
-    cy.get('#billing_first_name').type(nome)
-    cy.get('#billing_last_name').type(sobrenome)
-    cy.get('#billing_address_1').type(endereço)
-    cy.get('#billing_city').type(cidade)
-    cy.get('#billing_postcode').type(cep)
-    cy.get('#billing_phone').type(telefone)
-    cy.get('#billing_email').type(email)
+    cy.get('#billing_first_name').type(nome).tab();
+    cy.get('#billing_last_name').type(sobrenome).tab();
+    cy.get('#billing_address_1').type(endereço).tab();
+    cy.get('#billing_city').type(cidade).tab();
+    cy.get('#billing_postcode').type(cep).tab();
+    cy.get('#billing_phone').type(telefone).tab();
+    cy.get('#billing_email').type(email).tab();
+    
 
 })
 

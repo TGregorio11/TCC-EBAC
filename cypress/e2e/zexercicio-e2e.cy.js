@@ -1,21 +1,46 @@
-/// <reference types="cypress" />
+///<reference types="cypress"/>
+const perfil = require('../fixtures/perfil.json')
 
-context('Exercicio - Testes End-to-end - Fluxo de pedido', () => {
-    /*  Como cliente 
-        Quero acessar a Loja EBAC 
-        Para fazer um pedido de 4 produtos 
-        Fazendo a escolha dos produtos
-        Adicionando ao carrinho
-        Preenchendo todas opções no checkout
-        E validando minha compra ao final */
+import ProdutosPage from "../../cypress/support/page_objects/produtos.page";
+
+
+describe('Exercicio - Testes End-to-End', () => {
+
 
     beforeEach(() => {
-        cy.visit('/')
-    });
+        cy.visit('minha-conta')
+        
+           });
 
-    it('Deve fazer um pedido na loja Ebac Shop de ponta a ponta', () => {
-        //TODO 
-    });
+    it(' FLuxo completo de compra - End-to-End', () => {
+        cy.fixture('perfil').then(dados => {
+            cy.get('#username').type(dados.usuario)
+            cy.get('#password').type(dados.senha)
+            cy.get('.woocommerce-form > .button').click()
+            cy.get('.page-title')
+            cy.get('#primary-menu > .menu-item-629 > a').click()
 
-
+            cy.fixture('produtos').then(dados => {
+                ProdutosPage.buscarProdutos(dados[0].nomeProduto)
+                ProdutosPage.addProdutoCarrinho(
+                    dados[0].tamanho,
+                    dados[0].cor,
+                    dados[0].quantidade)
+                cy.get('.cart_item > .product-name').should('contain', dados[0].nomeProduto)
+                cy.fixture('checkout').then(dados => {
+                    cy.get('#billing_first_name').clear().type(dados.nome)
+                    cy.get('#billing_last_name').clear().type(dados.sobrenome)
+                    cy.get('#billing_address_1').clear().type(dados.endereço)
+                    cy.get('#billing_city').clear().type(dados.cidade)
+                    cy.get('#billing_postcode').clear().type(dados.cep)
+                    cy.get('#billing_phone').clear().type(dados.telefone)
+                    //cy.get('#billing_email').type(dados.email)
+                    cy.get('#terms').click()
+                    cy.get('#place_order').click()
+                    cy.get('.woocommerce-notice').should('contain', 'Obrigado. Seu pedido foi recebido.')
+                    
+                })
+            });
+        })
+    })
 })

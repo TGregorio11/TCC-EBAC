@@ -14,6 +14,8 @@ describe('Funcionalidade: Login', () => {
             cy.get('#password').type(dados.senha)
             cy.get('.woocommerce-form > .button').click()
             cy.get('.page-title')
+
+       
         })
     })
 })

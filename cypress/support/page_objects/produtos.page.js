@@ -16,7 +16,6 @@ class ProdutosPage {
         cy.get('.input-text').clear().type (quantidade)
         cy.get('.single_add_to_cart_button').click()
         cy.get('.woocommerce-message > .button').click()
-        cy.get('.quantity > .input-text').clear().type (4)
         cy.get('.checkout-button').click()
         
 

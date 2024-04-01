@@ -3,7 +3,7 @@
        "nomeProduto": "Ingrid Running Jacket",
         "tamanho": "L",
         "cor": "White",
-        "quantidade": 1
+        "quantidade": 4
     },
 
     { 
@@ -17,7 +17,7 @@
         "nomeProduto": "Hyperion Elements Jacket",
         "tamanho": "S",
         "cor": "Orange",
-        "quantidade": 1
+        "quantidade": 4
     }
 
 ]
