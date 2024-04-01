@@ -1,4 +1,4 @@
-/// <reference types="cypress" />
+<reference types="cypress" />
 let dadosLogin
 
 context('Funcionalidade Login', () => {

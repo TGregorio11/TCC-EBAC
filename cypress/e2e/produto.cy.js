@@ -1,4 +1,4 @@
-///<reference types="cypress"/>
+<reference types="cypress"/>
 import produtosPage from "../../cypress/support/page_objects/produtos.page";
 import ProdutosPage from "../../cypress/support/page_objects/produtos.page";
 
