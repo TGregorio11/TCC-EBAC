@@ -1,4 +1,4 @@
-<reference types= "cypress"/>
+///<reference types= "cypress"/>
 import { faker } from '@faker-js/faker';
 
 describe('Funcionalidade: Cadastro', () => {
