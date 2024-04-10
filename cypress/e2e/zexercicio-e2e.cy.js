@@ -34,7 +34,7 @@ describe('Exercicio - Testes End-to-End', () => {
                     cy.get('#billing_city').clear().type(dados.cidade)
                     cy.get('#billing_postcode').clear().type(dados.cep)
                     cy.get('#billing_phone').clear().type(dados.telefone)
-                    //cy.get('#billing_email').type(dados.email)
+                    cy.get('#billing_email').type(dados.email)
                     cy.get('#terms').click()
                     cy.get('#place_order').click()
                     cy.get('.woocommerce-notice').should('contain', 'Obrigado. Seu pedido foi recebido.')

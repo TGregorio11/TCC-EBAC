@@ -4,7 +4,7 @@
   "description": "Ebac shop: http://lojaebac.ebaconline.art.br/",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "npx cypress run",
     "cy:open": "npx cypress open",
     "cy:run": "npx cypress run",
     "cy:dashboard": "",
@@ -19,7 +19,7 @@
   "license": "ISC",
   "homepage": "",
   "devDependencies": {
-    "cypress": "^13.7.1"
+    "cypress": "^13.7.2"
   },
   "dependencies": {
     "@faker-js/faker": "^8.4.1",
