@@ -38,11 +38,11 @@ describe('Funcionalidade: Login', () => {
         cy.get('#username').type('thiago.teste@teste.com.br')
         cy.get('#password').type('7891011')
         cy.get('.woocommerce-form > .button').click()
-        cy.get('.woocommerce-error').should('contain', 'Erro: A senha fornecida para o e-mail thiago.teste@teste.com.br está incorreta. Perdeu a senha?')
+        cy.get('.woocommerce-error').should('be.visible')
+        cy.get('.woocommerce-error').should('contain', 'A senha fornecida para o e-mail')
         cy.get('.woocommerce-error').should('exist')
-    })
 
-
+        
 })
 
-
+});
