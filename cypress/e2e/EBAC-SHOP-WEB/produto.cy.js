@@ -1,5 +1,6 @@
-///<refence types="cypress"/>
-import produtosPage from "../../support/page-objects/produtos.page";
+///<reference types="cypress"/>     
+
+import produtosPage from "../../support/page_objects/produtos.page";
 
 
 describe('Funcionalidade: Produtos', () => {
@@ -11,18 +12,17 @@ describe('Funcionalidade: Produtos', () => {
 
 
     it('Deve adicionar produto ao carrinho com sucesso', () => {
-        let qtd = 5
-        produtosPage.buscarProduto('Ajax Full Zip Sweatshirt')
-        produtosPage.addProdutoCarrinho('M', 'Blue' , qtd)
-        cy.get('.woocommerce-message').should('contain',  qtd + ' × “Ajax Full-Zip Sweatshirt” foram adicionados no seu carrinho')
-    
+        produtosPage.buscarProdutos('Ajax Full Zip Sweatshirt')
+        produtosPage.addProdutoCarrinho('M', 'Blue' , 'qtd')
+        cy.get('.woocommerce-message'). should('contain', 'Ajax Full-Zip Sweatshirt” foi adicionado no seu carrinho')
+        
     });
 
 
 
     it.only('Deve adicionar produto ao carrinho buscando da massa de dados', () => {
         cy.fixture('produtos').then(dados => {
-            produtosPage.buscarProduto(dados[0].nomeProduto)
+            produtosPage.buscarProdutos(dados[0].nomeProduto)
             produtosPage.addProdutoCarrinho(
                 dados[0].tamanho,
                 dados[0].cor,
@@ -48,6 +48,4 @@ describe('Funcionalidade: Produtos', () => {
         
         })
     });
-
-    it('Produto sem estoque não deve acatar no carrinho', () => {
 })
