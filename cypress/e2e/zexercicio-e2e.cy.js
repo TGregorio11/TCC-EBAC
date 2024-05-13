@@ -1,5 +1,5 @@
 /// <reference types="cypress"/>
-const perfil = require('../fixtures/perfil.json')
+
 
 import ProdutosPage from "../../cypress/support/page_objects/produtos.page";
 
