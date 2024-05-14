@@ -10,7 +10,7 @@ describe('Funcionalidade: Produtos', () => {
         
     });
 
-    it('Deve adicionar 2 produtos no carrinho', () => {
+    it.only('Deve adicionar 3 produtos no carrinho', () => {
         cy.fixture('produtos').then(dados => {
             produtosPage.buscarProdutos(dados[0].nomeProduto)
             produtosPage.addProdutoCarrinho(
@@ -23,8 +23,14 @@ describe('Funcionalidade: Produtos', () => {
                 dados[1].tamanho,
                 dados[1].cor,
                 dados[1].quantidade)
-                cy.get('.woocommerce-message').should('contain', dados[1].nomeProduto)
-
+            cy.get('.woocommerce-message').should('contain', dados[1].nomeProduto)
+            produtosPage.buscarProdutos(dados[2].nomeProduto)
+             produtosPage.addProdutoCarrinho(
+                dados[2].tamanho,
+                dados[2].cor,
+                dados[2].quantidade)
+            cy.get('.woocommerce-message').should('contain', dados[2].nomeProduto)
+            cy.get('.woocommerce-message > .button').click()    
 
         })
     })
