@@ -24,6 +24,7 @@
   "dependencies": {
     "@faker-js/faker": "^8.4.1",
     "Cypress": "npm:cypress@^13.7.2",
+    "cypress-plugin-api": "^2.11.1",
     "faker": "^5.5.3"
   }
 }

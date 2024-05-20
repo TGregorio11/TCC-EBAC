@@ -1,25 +1,75 @@
 ///<reference types= "cypress"/>
 
-describe('Cupom de desconto utilizado com sucesso',  () => {
+import url_api from"../../fixtures/url_api.json";
 
-    it('Listar cupom - POST', () => {
+describe('Coupons de desconto utilizado com sucesso',  () => {
+
+    it('Cadastrar Coupons- POST', () => {
         let token = "YWRtaW5fZWJhYzpAYWRtaW4hJmJAYyEyMDIy"
-        cy.request({
+        cy.api({
             method: 'POST',
-            url: 'http://lojaebac.ebaconline.art.br/wp-json/wc/v3/coupons?context=view&orderby=id',
+            url: url_api.urlCoupons,
+            headers: {authorization: token},
             body: {
-                "code": "Ganhe 10",
+                "code": "Ganhe10",
                 "amount": "10",
                 "discount_type": "fixed_product",
-                "description": "Cupom de desconto de teste",
-                failOnStatusCode:false,
+                "description": "Cupom de desconto de teste", 
+
+                
             }
- 
+
         }).should((response) => {
             expect(response.status).equal(200)
-            expect(response.body.menssage)
+        
         })    
+        
+    })
 
-    });
+    it('Listar Coupons cadastrado com letras e numeros - GET', () => {
+        let token = "YWRtaW5fZWJhYzpAYWRtaW4hJmJAYyEyMDIy"
+        cy.api({
+            method: 'GET',
+            url: url_api.urlCouponsId,
+            headers: {authorization: token},
+            body: {
+                "code": "Ganhe10",
+                "amount": "10",
+                "discount_type": "fixed_product",
+                "description": "Cupom de desconto de teste", 
 
-});
+                
+            }
+        }).should((response) => {
+            expect(response.status).equal(200)
+            console.info ('id' + '4698')
+            expect(response.body).to.have.property('4698')
+
+        })
+    })    
+
+    it('Utilizar Coupons já existente - POST', () => {
+        it('Cadastrar Coupons- POST', () => {
+            let token = "YWRtaW5fZWJhYzpAYWRtaW4hJmJAYyEyMDIy"
+            cy.api({
+                method: 'POST',
+                url: url_api.urlCouponsId,
+                headers: {authorization: token},
+                body:{
+                    "code": "woocommerce_rest_coupon_code_already_exists",
+                    "message": "O código de cupom já existe",
+                    "data": {
+                      "status": 400
+                    }
+                    },failOnStatusCode: false
+               
+            }).should((response) => {
+                expect(response.status).equal(400)
+                expect(response.body.message).equal("O código de cupom já existe")
+            })
+        })    
+    })
+})
+        
+        
+    
