@@ -7,10 +7,15 @@ describe('Funcionalidade: Produtos', () => {
 
     beforeEach(() => {
         produtosPage.visitarUrl()
+    
+    })
+        afterEach(() => {
+        cy.screenshot()
         
+    
     });
 
-    it('Deve adicionar 3 produtos no carrinho', () => {
+    it.only('Deve adicionar 3 produtos no carrinho', () => {
         cy.fixture('produtos').then(dados => {
             produtosPage.buscarProdutos(dados[0].nomeProduto)
             produtosPage.addProdutoCarrinho(

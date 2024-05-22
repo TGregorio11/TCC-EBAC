@@ -2,9 +2,9 @@
 
 import url_api from"../../fixtures/url_api.json";
 
-describe('Coupons de desconto utilizado com sucesso',  () => {
+describe('Coupons de desconto',  () => {
 
-    it('Cadastrar Coupons- POST', () => {
+    it('Cadastrar Coupons de desconto com 10% - POST', () => {
         let token = "YWRtaW5fZWJhYzpAYWRtaW4hJmJAYyEyMDIy"
         cy.api({
             method: 'POST',
@@ -55,12 +55,13 @@ describe('Coupons de desconto utilizado com sucesso',  () => {
                 method: 'POST',
                 url: url_api.urlCouponsId,
                 headers: {authorization: token},
-                body:{
-                    "code": "woocommerce_rest_coupon_code_already_exists",
-                    "message": "O código de cupom já existe",
-                    "data": {
-                      "status": 400
-                    }
+                body: {
+                    "code": "Ganhe10",
+                    "amount": "10",
+                    "discount_type": "fixed_product",
+                    "description": "Cupom de desconto de teste", 
+
+                
                     },failOnStatusCode: false
                
             }).should((response) => {
