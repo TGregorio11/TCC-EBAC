@@ -40,7 +40,7 @@ describe('Funcionalidade: Produtos', () => {
         })
     })
 
-    it.only('Deve adicionar produto ao carrinho com sucesso', () => {
+    it('Deve adicionar produto ao carrinho com sucesso', () => {
         produtosPage.buscarProdutos('Ajax Full Zip Sweatshirt')
         produtosPage.addProdutoCarrinho('M', 'Blue' , 'qtd')
         cy.get('.woocommerce-message'). should('contain', 'Ajax Full-Zip Sweatshirt” foi adicionado no seu carrinho')
@@ -48,7 +48,7 @@ describe('Funcionalidade: Produtos', () => {
     }),
       
 
-    it.only('Adicionar produto acima do estoque disponivel', () => {
+    it('Adicionar produto acima do estoque disponivel', () => {
         produtosPage.buscarProdutos('Augusta Pullover Jacket')
         produtosPage.addProdutoCarrinho('M', 'Blue' , '101')
         cy.get('.single_add_to_cart_button').click().invoke('show')
