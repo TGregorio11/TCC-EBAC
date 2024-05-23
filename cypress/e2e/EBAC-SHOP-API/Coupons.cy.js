@@ -2,7 +2,11 @@
 
 import url_api from"../../fixtures/url_api.json";
 
-describe('Coupons de desconto',  () => {
+describe('Funcionalidade: Produtos', () => {
+
+        afterEach(() => {
+        cy.screenshot()            
+    });
 
     it('Cadastrar Coupons de desconto com 10% - POST', () => {
         let token = "YWRtaW5fZWJhYzpAYWRtaW4hJmJAYyEyMDIy"
@@ -14,9 +18,7 @@ describe('Coupons de desconto',  () => {
                 "code": "Ganhe10",
                 "amount": "10",
                 "discount_type": "fixed_product",
-                "description": "Cupom de desconto de teste", 
-
-                
+                "description": "Cupom de desconto de teste",                
             }
 
         }).should((response) => {
